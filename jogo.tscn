@@ -979,7 +979,7 @@ tile_set = SubResource("TileSet_bkbbs")
 position = Vector2(25, 38)
 
 [node name="Area2D" parent="." unique_id=104569418 instance=ExtResource("3_1ap6j")]
-position = Vector2(553, 167)
+position = Vector2(546, 160)
 
 [node name="Label" type="Label" parent="." unique_id=1496220276]
 offset_left = 189.0
