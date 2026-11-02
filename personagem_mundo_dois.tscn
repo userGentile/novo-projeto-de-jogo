@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dlw7pn3m83ju8"]
+
+[ext_resource type="Texture2D" uid="uid://cvhms78oospb1" path="res://arte/tilemap_packed.png" id="1_xk1ms"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("1_xk1ms")
+region = Rect2(256, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("1_xk1ms")
+region = Rect2(256, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("1_xk1ms")
+region = Rect2(272, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fxdwk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tctjd"]
+size = Vector2(14, 14)
+
+[node name="personagem mundo dois" type="CharacterBody2D" unique_id=515446419]
+
+[node name="imagem personagem mundo" type="AnimatedSprite2D" parent="." unique_id=244615058]
+sprite_frames = SubResource("SpriteFrames_fxdwk")
+animation = &"walk"
+autoplay = "idle"
+
+[node name="Corpo personagem" type="CollisionShape2D" parent="." unique_id=1010554296]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_tctjd")
+
+[node name="Camera personagem mundo dois" type="Camera2D" parent="." unique_id=154370755]
+zoom = Vector2(1.5, 1.5)
+limit_left = -48
+limit_top = -48
+limit_right = 1000
+limit_bottom = 560
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
