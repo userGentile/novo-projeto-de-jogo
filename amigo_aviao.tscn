@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c6aviaoamigo7"]
+
+[ext_resource type="Script" path="res://amigo_aviao.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cvhms78oospb1" path="res://arte/tilemap_packed.png" id="2_tiles"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aviao"]
+atlas = ExtResource("2_tiles")
+region = Rect2(160, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aviao"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aviao")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AmigoAviao" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_aviao")
+autoplay = "default"

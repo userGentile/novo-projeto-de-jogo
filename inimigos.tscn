@@ -1,0 +1,216 @@
+[gd_scene format=3 uid="uid://cwtefxe1ipbra"]
+
+[ext_resource type="Texture2D" uid="uid://cvhms78oospb1" path="res://arte/tilemap_packed.png" id="1_i3pqv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cinza_idle"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(256, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2siq"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(272, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cinza_walk1"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(256, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cinza_walk2"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(272, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cinza"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cinza_idle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2siq")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cinza_walk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cinza_walk2")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sau36"]
+size = Vector2(12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_azul_idle"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(256, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klq5n"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(272, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_azul_walk1"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(256, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_azul_walk2"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(272, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_azul"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_azul_idle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klq5n")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_azul_walk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_azul_walk2")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amarelo_idle"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(256, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pes2"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(272, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amarelo_walk1"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(256, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amarelo_walk2"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(272, 144, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_amarelo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amarelo_idle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pes2")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amarelo_walk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amarelo_walk2")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_verde_idle"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(256, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iaahx"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(272, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_verde_walk1"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(256, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_verde_walk2"]
+atlas = ExtResource("1_i3pqv")
+region = Rect2(272, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_verde"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_verde_idle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iaahx")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_verde_walk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_verde_walk2")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Inimigos" type="Node2D" unique_id=1137226664]
+
+[node name="Inimigo-cinza" type="CharacterBody2D" parent="." unique_id=2144636901]
+
+[node name="Imagem-inimigo-cinza" type="AnimatedSprite2D" parent="Inimigo-cinza" unique_id=1381957580]
+sprite_frames = SubResource("SpriteFrames_cinza")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Corpo-inimigo-cinza" type="CollisionShape2D" parent="Inimigo-cinza" unique_id=328608813]
+shape = SubResource("RectangleShape2D_sau36")
+
+[node name="Inimigo-azul" type="CharacterBody2D" parent="." unique_id=81352421]
+position = Vector2(30, 0)
+
+[node name="Imagem-inimigo-azul" type="AnimatedSprite2D" parent="Inimigo-azul" unique_id=1174064110]
+sprite_frames = SubResource("SpriteFrames_azul")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Corpo-inimigo-azul" type="CollisionShape2D" parent="Inimigo-azul" unique_id=581791340]
+shape = SubResource("RectangleShape2D_sau36")
+
+[node name="Inimigo-amarelo" type="CharacterBody2D" parent="." unique_id=2068544947]
+position = Vector2(60, 0)
+
+[node name="Imagem-inimigo-amarelo" type="AnimatedSprite2D" parent="Inimigo-amarelo" unique_id=12661240]
+sprite_frames = SubResource("SpriteFrames_amarelo")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Corpo-inimigo-amarelo" type="CollisionShape2D" parent="Inimigo-amarelo" unique_id=504269650]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_sau36")
+
+[node name="Inimigo-verde" type="CharacterBody2D" parent="." unique_id=53128452]
+position = Vector2(90, 0)
+
+[node name="Imagem-inimigo-verde" type="AnimatedSprite2D" parent="Inimigo-verde" unique_id=1752421731]
+sprite_frames = SubResource("SpriteFrames_verde")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Corpo-inimigo-verde" type="CollisionShape2D" parent="Inimigo-verde" unique_id=817519525]
+shape = SubResource("RectangleShape2D_sau36")

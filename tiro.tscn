@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bgamo4rl87d6f"]
+
+[ext_resource type="Texture2D" uid="uid://cvhms78oospb1" path="res://arte/tilemap_packed.png" id="1_rivwi"]
+[ext_resource type="Script" uid="uid://bbs7ffc66bhyu" path="res://tiro.gd" id="1_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qe4n8"]
+size = Vector2(9, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp2hl"]
+atlas = ExtResource("1_rivwi")
+region = Rect2(180, 165, 12, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y565o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp2hl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Tiro" type="Area2D" unique_id=911393413]
+script = ExtResource("1_script")
+
+[node name="Corpo-tiro" type="CollisionShape2D" parent="." unique_id=2093600555]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_qe4n8")
+
+[node name="Imagem-tiro" type="AnimatedSprite2D" parent="." unique_id=244030449]
+position = Vector2(0, 2)
+scale = Vector2(1.1249999, 0.5568182)
+sprite_frames = SubResource("SpriteFrames_y565o")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

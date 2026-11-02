@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://b7caminhao3"]
+
+[ext_resource type="Script" path="res://inimigo.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cvhms78oospb1" path="res://arte/tilemap_packed.png" id="2_tiles"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cam1"]
+atlas = ExtResource("2_tiles")
+region = Rect2(96, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cam2"]
+atlas = ExtResource("2_tiles")
+region = Rect2(96, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_caminhao"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cam1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cam2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_caminhao"]
+size = Vector2(16, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_area"]
+size = Vector2(18, 16)
+
+[node name="InimigoCaminhao" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_script")
+tipo_inimigo = "caminhao"
+comportamento = "perseguidor"
+vida_max = 4
+valor_tap = 30
+base_speed = 32.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_caminhao")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_caminhao")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_area")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

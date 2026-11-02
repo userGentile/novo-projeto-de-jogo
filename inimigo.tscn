@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://c6ynkfxw7e8k8"]
+
+[ext_resource type="Script" path="res://inimigo.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cvhms78oospb1" path="res://arte/tilemap_packed.png" id="2_tiles"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cinza_1"]
+atlas = ExtResource("2_tiles")
+region = Rect2(256, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cinza_2"]
+atlas = ExtResource("2_tiles")
+region = Rect2(272, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_verde_1"]
+atlas = ExtResource("2_tiles")
+region = Rect2(256, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_verde_2"]
+atlas = ExtResource("2_tiles")
+region = Rect2(272, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_azul_1"]
+atlas = ExtResource("2_tiles")
+region = Rect2(256, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_azul_2"]
+atlas = ExtResource("2_tiles")
+region = Rect2(272, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amarelo_1"]
+atlas = ExtResource("2_tiles")
+region = Rect2(256, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amarelo_2"]
+atlas = ExtResource("2_tiles")
+region = Rect2(272, 144, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_inimigo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amarelo_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amarelo_2")
+}],
+"loop": true,
+"name": &"amarelo_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_azul_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_azul_2")
+}],
+"loop": true,
+"name": &"azul_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cinza_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cinza_2")
+}],
+"loop": true,
+"name": &"cinza_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_verde_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_verde_2")
+}],
+"loop": true,
+"name": &"verde_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inimigo"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_area"]
+size = Vector2(16, 16)
+
+[node name="Inimigo" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_inimigo")
+animation = &"cinza_walk"
+autoplay = "cinza_walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_inimigo")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_area")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
