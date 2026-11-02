@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://mxkay4wriwp2"]
+
+[node name="Inimigos mundo dois" type="Node2D" unique_id=653124528]
+
+[node name="inimigo" type="CharacterBody2D" parent="." unique_id=1329124159]
+
+[node name="imagem inimigo" type="AnimatedSprite2D" parent="inimigo" unique_id=527439066]
+
+[node name="Corpo inimigo" type="CollisionShape2D" parent="inimigo" unique_id=2018618000]

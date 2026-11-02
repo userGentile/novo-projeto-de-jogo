@@ -225,3 +225,18 @@ theme_override_font_sizes/font_size = 8
 text = "Bandeira [E]"
 icon = ExtResource("3_bandeira_tex")
 alignment = 0
+
+[node name="BotaoMundoDois" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -118.0
+offset_top = 92.0
+offset_right = -8.0
+offset_bottom = 116.0
+grow_horizontal = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+text = "Mundo 2 (2500) [P]"
+alignment = 0

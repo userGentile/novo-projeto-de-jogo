@@ -1,60 +1,77 @@
 [gd_scene format=3 uid="uid://dlw7pn3m83ju8"]
 
-[ext_resource type="Texture2D" uid="uid://cvhms78oospb1" path="res://arte/tilemap_packed.png" id="1_xk1ms"]
+[ext_resource type="Script" path="res://mundo dois/player_m2.gd" id="1_player"]
+[ext_resource type="Texture2D" path="res://verdadeira arte do mundo dois/Personagens/characters/gladiator.png" id="2_gladiator"]
+[ext_resource type="Texture2D" path="res://verdadeira arte do mundo dois/dinheiro do mundo novo/icons-32px/gold-coin.png" id="3_coin"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
-atlas = ExtResource("1_xk1ms")
-region = Rect2(256, 128, 16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_player"]
+radius = 10.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
-atlas = ExtResource("1_xk1ms")
-region = Rect2(256, 128, 16, 16)
+[node name="personagem mundo dois" type="CharacterBody2D" groups=["player_m2"]]
+collision_mask = 3
+script = ExtResource("1_player")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
-atlas = ExtResource("1_xk1ms")
-region = Rect2(272, 128, 16, 16)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.095, 0.095)
+texture = ExtResource("2_gladiator")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_fxdwk"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_onrkg")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqtel")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sweqy")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_player")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tctjd"]
-size = Vector2(14, 14)
-
-[node name="personagem mundo dois" type="CharacterBody2D" unique_id=515446419]
-
-[node name="imagem personagem mundo" type="AnimatedSprite2D" parent="." unique_id=244615058]
-sprite_frames = SubResource("SpriteFrames_fxdwk")
-animation = &"walk"
-autoplay = "idle"
-
-[node name="Corpo personagem" type="CollisionShape2D" parent="." unique_id=1010554296]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_tctjd")
-
-[node name="Camera personagem mundo dois" type="Camera2D" parent="." unique_id=154370755]
+[node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
-limit_left = -48
-limit_top = -48
-limit_right = 1000
-limit_bottom = 560
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
+
+[node name="TimerAtaque" type="Timer" parent="."]
+
+[node name="TimerInvulneravel" type="Timer" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="VidaContainer" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="IconeVida" type="Label" parent="HUD/MarginContainer/HBoxContainer/VidaContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.2, 0.25, 1)
+theme_override_font_sizes/font_size = 11
+text = "❤"
+vertical_alignment = 1
+
+[node name="LabelVida" type="Label" parent="HUD/MarginContainer/HBoxContainer/VidaContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "x 5"
+vertical_alignment = 1
+
+[node name="OuroContainer" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="IconeOuro" type="TextureRect" parent="HUD/MarginContainer/HBoxContainer/OuroContainer"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+texture = ExtResource("3_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LabelOuro" type="Label" parent="HUD/MarginContainer/HBoxContainer/OuroContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "x 0"
+vertical_alignment = 1

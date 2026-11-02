@@ -41,6 +41,7 @@ const DURACAO_INVULNERABILIDADE: float = 1.0
 
 # Dinheiro Tap
 var dinheiro_tap: int = 0
+const CUSTO_MUNDO_DOIS: int = 2500
 
 var ultima_direcao: Vector2 = Vector2.RIGHT
 
@@ -63,6 +64,7 @@ var shake_tempo: float = 0.0
 @onready var container_numeros_multi: HBoxContainer = $"CanvasLayer/Control/ContainerMulti/Numeros"
 @onready var botao_compra_multi: Button = $"CanvasLayer/Control/BotaoComprarMulti"
 @onready var botao_bandeira: Button = $"CanvasLayer/Control/BotaoBandeira"
+@onready var botao_mundo_dois: Button = get_node_or_null("CanvasLayer/Control/BotaoMundoDois")
 
 # Texturas dos números de 0 a 9 do tilemap
 var texturas_digitos: Array[Texture2D] = []
@@ -80,6 +82,8 @@ func _ready() -> void:
 		botao_compra_multi.pressed.connect(_on_comprar_multi_pressed)
 	if botao_bandeira:
 		botao_bandeira.pressed.connect(colocar_bandeira_cura)
+	if botao_mundo_dois:
+		botao_mundo_dois.pressed.connect(viajar_mundo_dois)
 	atualizar_botao_compra()
 
 func carregar_texturas_digitos() -> void:
@@ -158,6 +162,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			comprar_multiplicador()
 		elif event.keycode == KEY_B:
 			comprar_amigo_aviao()
+		elif event.keycode == KEY_P:
+			viajar_mundo_dois()
 
 func atirar() -> void:
 	var tiro = TIRO_SCENE.instantiate()
@@ -261,6 +267,15 @@ func atualizar_botao_compra() -> void:
 				botao_compra_multi.modulate = Color(1, 1, 1, 1)
 			else:
 				botao_compra_multi.modulate = Color(0.7, 0.7, 0.7, 0.8)
+
+	if botao_mundo_dois:
+		botao_mundo_dois.disabled = (dinheiro_tap < CUSTO_MUNDO_DOIS)
+		if dinheiro_tap >= CUSTO_MUNDO_DOIS:
+			botao_mundo_dois.modulate = Color(1.0, 1.0, 0.4, 1.0)
+			botao_mundo_dois.text = "Viajar M2 (2500) [P]"
+		else:
+			botao_mundo_dois.modulate = Color(0.7, 0.7, 0.7, 0.8)
+			botao_mundo_dois.text = "Mundo 2 (2500) [P]"
 
 func _on_comprar_multi_pressed() -> void:
 	comprar_multiplicador()
@@ -387,3 +402,10 @@ func ganhar_vida_extra() -> void:
 	modulate = Color(1.8, 1.6, 0.2, 1.0)
 	var tw := create_tween()
 	tw.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.4)
+
+func viajar_mundo_dois() -> void:
+	if dinheiro_tap >= CUSTO_MUNDO_DOIS:
+		dinheiro_tap -= CUSTO_MUNDO_DOIS
+		atualizar_hud_dinheiro()
+		atualizar_botao_compra()
+		get_tree().change_scene_to_file("res://mundo_dois.tscn")
