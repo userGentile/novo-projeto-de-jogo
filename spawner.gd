@@ -28,7 +28,6 @@ func iniciar_onda(numero: int) -> void:
 	mudando_de_onda = false
 	onda_atual = numero
 	
-	# A cada 10 ondas concluídas o jogador ganha uma vida extra
 	if onda_atual > 1 and (onda_atual - 1) % 10 == 0:
 		if player == null:
 			player = get_node_or_null("Player")

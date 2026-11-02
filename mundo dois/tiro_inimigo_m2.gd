@@ -21,6 +21,12 @@ func _physics_process(delta: float) -> void:
 	if tempo_vida >= tempo_vida_max:
 		queue_free()
 
+func _on_body_entered(body: Node2D) -> void:
+	_acertar(body)
+
+func _on_area_entered(area: Area2D) -> void:
+	_acertar(area)
+
 func _acertar(alvo: Node) -> void:
 	if alvo.is_in_group("player_m2") or alvo.is_in_group("player") or alvo.name == "Player":
 		if alvo.has_method("receber_dano"):
@@ -30,9 +36,3 @@ func _acertar(alvo: Node) -> void:
 		queue_free()
 	elif alvo is TileMapLayer or alvo is StaticBody2D:
 		queue_free()
-
-func _on_body_entered(body: Node2D) -> void:
-	_acertar(body)
-
-func _on_area_entered(area: Area2D) -> void:
-	_acertar(area)

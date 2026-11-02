@@ -2,6 +2,7 @@ extends Area2D
 
 @export var velocidade: float = 220.0
 @export var dano: int = 1
+
 var direcao: Vector2 = Vector2.RIGHT
 
 func _ready() -> void:

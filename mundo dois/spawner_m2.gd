@@ -4,6 +4,7 @@ const INIMIGO_M2_SCENE: PackedScene = preload("res://mundo dois/inimigo_m2.tscn"
 
 @export var raio_spawn_min: float = 280.0
 @export var raio_spawn_max: float = 380.0
+
 @export var delay_entre_ondas: float = 2.0
 
 var onda_atual: int = 1
@@ -24,14 +25,13 @@ func _localizar_player() -> void:
 		if p is CharacterBody2D:
 			player = p
 	if player == null:
-		player = get_node_or_null("../personagem mundo dois") as CharacterBody2D
+		player = get_node_or_null("../Player") as CharacterBody2D
 
 func iniciar_onda(numero: int) -> void:
 	mudando_de_onda = false
 	onda_atual = numero
 	_localizar_player()
 	
-	# Curva de quantidade estilo Survivor: 6 no início, aumentando gradualmente
 	var total_inimigos: int = 6 + (onda_atual - 1) * 3
 	inimigos_vivos = total_inimigos
 	atualizar_hud()
@@ -43,14 +43,11 @@ func _spawn_inimigo(indice: int, total: int) -> void:
 	var inimigo = INIMIGO_M2_SCENE.instantiate()
 	var tipo_escolhido: String = "soldado"
 	
-	# Onda 1: apenas soldados
-	# Onda 2+: inclui guerreiros
-	# Onda 3+: inclui feiticeiros
 	if onda_atual >= 3:
-		var rand_val = randf()
-		if rand_val < 0.25:
+		var sorteio = randf()
+		if sorteio < 0.25:
 			tipo_escolhido = "feiticeiro"
-		elif rand_val < 0.55:
+		elif sorteio < 0.55:
 			tipo_escolhido = "guerreiro"
 		else:
 			tipo_escolhido = "soldado"
@@ -84,7 +81,6 @@ func _on_inimigo_morreu(_inimigo: CharacterBody2D) -> void:
 		_concluir_onda()
 
 func _concluir_onda() -> void:
-	# Limpa projeteis inimigos ao terminar onda
 	for t in get_tree().get_nodes_in_group("tiros_inimigos_m2"):
 		if is_instance_valid(t):
 			t.queue_free()
@@ -104,4 +100,4 @@ func atualizar_hud() -> void:
 		if hud:
 			var label_onda = hud.get_node_or_null("MarginContainer/HBoxContainer/OndaContainer/LabelOnda")
 			if label_onda:
-				label_onda.text = "Onda %d (%d restantes)" % [onda_atual, inimigos_vivos]
+				label_onda.text = "Onda: " + str(onda_atual)

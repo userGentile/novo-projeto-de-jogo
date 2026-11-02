@@ -1,9 +1,9 @@
 extends Area2D
 
-const VELOCIDADE_ATRACAO: float = 180.0
-const DISTANCIA_MAGNETICA: float = 45.0
-
 @export var valor: int = 1
+@export var velocidade_atracao: float = 180.0
+@export var distancia_magnetica: float = 45.0
+
 var player: CharacterBody2D = null
 var coletado: bool = false
 
@@ -22,9 +22,9 @@ func _physics_process(delta: float) -> void:
 			return
 			
 	var dist = global_position.distance_to(player.global_position)
-	if dist < DISTANCIA_MAGNETICA:
+	if dist < distancia_magnetica:
 		var direcao = (player.global_position - global_position).normalized()
-		global_position += direcao * VELOCIDADE_ATRACAO * delta
+		global_position += direcao * velocidade_atracao * delta
 
 func _localizar_player() -> void:
 	player = get_tree().get_first_node_in_group("player_m2") as CharacterBody2D

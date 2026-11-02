@@ -5,16 +5,13 @@ const TIRO_SCENE = preload("res://tiro.tscn")
 const AMIGO_AVIAO_SCENE = preload("res://amigo_aviao.tscn")
 const BANDEIRA_SCENE = preload("res://bandeira_cura.tscn")
 
-# Custo do Amigo Avião
 const CUSTO_AVIAO = 100
 const MAX_AVIOES = 10
 
-# Multiplicador de Tiro
 const CUSTO_MULTIPLICADOR = 70
 const MAX_MULTIPLICADORES = 9
 var multiplicadores_tiro: int = 0
 
-# Posições de cantos e direções de disparo para os tiros extras
 const CONFIG_CANTOS = [
 	{"offset": Vector2(8, -8), "dir": Vector2(1, -1)},     # Canto Superior Direito
 	{"offset": Vector2(-8, -8), "dir": Vector2(-1, -1)},   # Canto Superior Esquerdo
@@ -27,29 +24,23 @@ const CONFIG_CANTOS = [
 	{"offset": Vector2(0, 0), "dir": Vector2(-1, -1)}      # Canto Diagonal Reverso
 ]
 
-
-# Mecânica da Bandeira de Cura
 const COOLDOWN_BANDEIRA: float = 15.0
 var tempo_recarga_bandeira: float = 0.0
 
-# Mecânica de Vida
 var max_vida: int = 3
 var vida: int = 3
 var invulneravel: bool = false
 var tempo_invulneravel: float = 0.0
 const DURACAO_INVULNERABILIDADE: float = 1.0
 
-# Dinheiro Tap
 var dinheiro_tap: int = 0
 const CUSTO_MUNDO_DOIS: int = 2500
 
 var ultima_direcao: Vector2 = Vector2.RIGHT
 
-# Limites do mapa de jogo (área jogável)
 const MAPA_MIN: Vector2 = Vector2(-20.0, -20.0)
 const MAPA_MAX: Vector2 = Vector2(1020.0, 570.0)
 
-# Efeito de Screen Shake sutil
 var shake_intensidade: float = 0.0
 var shake_duracao: float = 0.0
 var shake_tempo: float = 0.0
@@ -66,7 +57,6 @@ var shake_tempo: float = 0.0
 @onready var botao_bandeira: Button = $"CanvasLayer/Control/BotaoBandeira"
 @onready var botao_mundo_dois: Button = get_node_or_null("CanvasLayer/Control/BotaoMundoDois")
 
-# Texturas dos números de 0 a 9 do tilemap
 var texturas_digitos: Array[Texture2D] = []
 
 func _ready() -> void:
@@ -96,7 +86,6 @@ func carregar_texturas_digitos() -> void:
 		texturas_digitos.append(atlas)
 
 func _process(delta: float) -> void:
-	# Controle do tempo de invulnerabilidade após levar dano
 	if invulneravel:
 		tempo_invulneravel -= delta
 		visible = int(tempo_invulneravel * 12) % 2 == 0
@@ -105,7 +94,6 @@ func _process(delta: float) -> void:
 			visible = true
 
 	
-	# Cooldown da bandeira de cura
 	if tempo_recarga_bandeira > 0.0:
 		tempo_recarga_bandeira -= delta
 		if tempo_recarga_bandeira < 0.0:
@@ -177,7 +165,6 @@ func atirar() -> void:
 	tiro.position = global_position + direcao_tiro * 12
 	get_parent().add_child(tiro)
 	
-	# Disparo dos tiros extras nos cantos do jogador baseado nos multiplicadores adquiridos
 	var qtd_extras = mini(multiplicadores_tiro, CONFIG_CANTOS.size())
 	for i in range(qtd_extras):
 		var cfg = CONFIG_CANTOS[i]
@@ -307,7 +294,6 @@ func comprar_amigo_aviao() -> void:
 		
 		var aviao = AMIGO_AVIAO_SCENE.instantiate()
 		
-		# Distribui uniformemente os ângulos entre os aviões existentes
 		var avioes_existentes = []
 		for c in get_children():
 			if c.is_in_group("amigos"):
@@ -316,7 +302,6 @@ func comprar_amigo_aviao() -> void:
 		add_child(aviao)
 		avioes_existentes.append(aviao)
 		
-		# Recalcula as fases orbitais para que fiquem bem espaçados
 		var total = avioes_existentes.size()
 		for i in range(total):
 			avioes_existentes[i].angulo_atual = (TAU / total) * i
@@ -355,7 +340,6 @@ func curar(qtd: int = 1) -> void:
 	if vida < max_vida:
 		vida = mini(vida + qtd, max_vida)
 		atualizar_hud_vida()
-		# Feedback visual de cura (pisca esverdeado suave)
 		modulate = Color(0.6, 1.8, 0.6, 1.0)
 		var tw = create_tween()
 		tw.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.2)
@@ -368,7 +352,6 @@ func colocar_bandeira_cura() -> void:
 	atualizar_botao_bandeira()
 	
 	var bandeira = BANDEIRA_SCENE.instantiate()
-	# Coloca a bandeira logo ao lado do jogador (offset de 20 pixels)
 	var offset_lado = Vector2(-20 if ultima_direcao.x >= 0 else 20, 0)
 	get_parent().add_child(bandeira)
 	bandeira.global_position = global_position + offset_lado
@@ -388,7 +371,6 @@ func atualizar_botao_bandeira() -> void:
 func ganhar_vida_extra() -> void:
 	max_vida += 1
 	vida = mini(vida + 1, max_vida)
-	# Adiciona novo coração na HUD dinamicamente
 	if hud_coracoes:
 		var atlas := AtlasTexture.new()
 		atlas.atlas = preload("res://arte/tilemap_packed.png")
@@ -398,7 +380,6 @@ func ganhar_vida_extra() -> void:
 		tr.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
 		hud_coracoes.add_child(tr)
 	atualizar_hud_vida()
-	# Feedback visual dourado ao ganhar vida extra
 	modulate = Color(1.8, 1.6, 0.2, 1.0)
 	var tw := create_tween()
 	tw.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.4)

@@ -1,10 +1,11 @@
 extends CharacterBody2D
- 
+
 signal vida_alterada(vida_atual: int, vida_max: int)
 signal ouro_alterado(total_ouro: int)
 signal morreu
 
 @export var velocidade: float = 90.0
+
 @export var vida_max: int = 5
 @export var intervalo_ataque: float = 0.8
 @export var tempo_invulneravel: float = 0.6
@@ -40,7 +41,6 @@ func _physics_process(_delta: float) -> void:
 	direcao.x = Input.get_axis("ui_left", "ui_right")
 	direcao.y = Input.get_axis("ui_up", "ui_down")
 	
-	# Suporte opcional a WASD caso nao estejam no InputMap
 	if direcao == Vector2.ZERO:
 		if Input.is_key_pressed(KEY_A):
 			direcao.x -= 1.0
@@ -54,7 +54,7 @@ func _physics_process(_delta: float) -> void:
 	if direcao != Vector2.ZERO:
 		direcao = direcao.normalized()
 		if direcao.x != 0:
-			sprite.flip_h = direcao.x < 0
+			sprite.flip_h = (direcao.x < 0)
 
 	velocity = direcao * velocidade
 	move_and_slide()
@@ -118,6 +118,6 @@ func morrer() -> void:
 
 func _atualizar_hud() -> void:
 	if label_vida:
-		label_vida.text = "x %d" % vida
+		label_vida.text = str(vida)
 	if label_ouro:
-		label_ouro.text = "x %d" % ouro
+		label_ouro.text = str(ouro)
