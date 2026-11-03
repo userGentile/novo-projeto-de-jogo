@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://c0by6c4t7u0h4"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w2t47"]
-load_path = "res://.godot/imported/ground.png-10f77ac650fda4fe816c02c1fa817359.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_caxpo"]
 texture = SubResource("CompressedTexture2D_w2t47")
@@ -266,7 +265,6 @@ texture = SubResource("CompressedTexture2D_w2t47")
 sources/0 = SubResource("TileSetAtlasSource_caxpo")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_85ba6"]
-load_path = "res://.godot/imported/water.png-296ca5fde9994ec4d97317818dc14669.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xpfm"]
 texture = SubResource("CompressedTexture2D_85ba6")
@@ -540,6 +538,7 @@ tile_map_data = PackedByteArray("AAABAAMAAAAJAAEAAAABAAQAAAAJAAAAAAACAAMAAAAIAAE
 tile_set = SubResource("TileSet_5xpfm")
 
 [node name="Água" type="TileMapLayer" parent="MundoDois" unique_id=1974986770]
+visible = false
 tile_set = SubResource("TileSet_mj2jv")
 
 [node name="Decoração" type="TileMapLayer" parent="MundoDois" unique_id=561155471]

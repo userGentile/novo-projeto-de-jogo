@@ -1,9 +1,33 @@
 [gd_scene format=3 uid="uid://b8kny3hhrsg72"]
 
-[node name="Menu primeiro mundo" type="Control" unique_id=1386416021]
+[ext_resource type="Script" uid="uid://dc36duw47j4y1" path="res://menu_primeiro_mundo.gd" id="1_6ekek"]
+
+[node name="Menu" type="Control" unique_id=1386416021]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6ekek")
+
+[node name="Panel" type="Panel" parent="." unique_id=1978189899]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Tituloo" type="Label" parent="." unique_id=564953042]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Botoes" type="VBoxContainer" parent="." unique_id=1798451526]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Jogar" type="Button" parent="Botoes" unique_id=1829788931]
+layout_mode = 2
+
+[node name="Sair" type="Button" parent="Botoes" unique_id=270674570]
+layout_mode = 2
