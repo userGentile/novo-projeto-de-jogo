@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://b8kny3hhrsg72"]
 
-[ext_resource type="Script" path="res://menu_primeiro_mundo.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://dc36duw47j4y1" path="res://menu_primeiro_mundo.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://dqrefvgtopymw" path="res://arte/arte menu mundo 1.png" id="2_bg"]
-[ext_resource type="Texture2D" path="res://arte/btn_iniciar_arte.png" id="3_iniciar"]
-[ext_resource type="Texture2D" path="res://arte/btn_sair_arte.png" id="4_sair"]
 
 [node name="Menu primeiro mundo" type="Control"]
 layout_mode = 3
@@ -23,34 +21,51 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_bg")
 expand_mode = 1
-stretch_mode = 0
 
-[node name="BotaoIniciar" type="TextureButton" parent="."]
+[node name="BotaoIniciar" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.3702
-anchor_top = 0.4336
-anchor_right = 0.6603
-anchor_bottom = 0.5983
+anchor_left = 0.3469
+anchor_top = 0.4038
+anchor_right = 0.6758
+anchor_bottom = 0.6057
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("3_iniciar")
-ignore_texture_size = true
-stretch_mode = 0
+flat = true
 
-[node name="BotaoSair" type="TextureButton" parent="."]
+[node name="Overlay" type="ColorRect" parent="BotaoIniciar"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.22)
+
+[node name="BotaoSair" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4031
-anchor_top = 0.6249
-anchor_right = 0.6256
-anchor_bottom = 0.7333
+anchor_left = 0.3899
+anchor_top = 0.6227
+anchor_right = 0.6579
+anchor_bottom = 0.7365
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("4_sair")
-ignore_texture_size = true
-stretch_mode = 0
+flat = true
+
+[node name="Overlay" type="ColorRect" parent="BotaoSair"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.22)

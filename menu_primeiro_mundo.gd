@@ -1,39 +1,45 @@
+# Script do menu principal do Mundo 1
 extends Control
 
-@onready var botao_jogar: TextureButton = $BotaoIniciar
-@onready var botao_sair: TextureButton = $BotaoSair
-
-# Cores de destaque ao passar o mouse
-const COR_NORMAL = Color(1.0, 1.0, 1.0, 1.0)
-const COR_HOVER = Color(1.35, 1.35, 1.35, 1.0) # Ilumina e realca as cores do botao
+@onready var botao_iniciar: Button = $BotaoIniciar
+@onready var botao_sair: Button = $BotaoSair
+@onready var overlay_iniciar: ColorRect = $BotaoIniciar/Overlay
+@onready var overlay_sair: ColorRect = $BotaoSair/Overlay
 
 func _ready() -> void:
-	if botao_jogar:
-		botao_jogar.pressed.connect(_on_jogar_pressed)
-		botao_jogar.mouse_entered.connect(_on_jogar_hover)
-		botao_jogar.mouse_exited.connect(_on_jogar_exit)
+	# Garante que os realces comecem invisiveis
+	if overlay_iniciar:
+		overlay_iniciar.visible = false
+	if overlay_sair:
+		overlay_sair.visible = false
+	
+	if botao_iniciar:
+		botao_iniciar.pressed.connect(_on_iniciar_pressed)
+		botao_iniciar.mouse_entered.connect(_on_iniciar_hover)
+		botao_iniciar.mouse_exited.connect(_on_iniciar_exit)
+	
 	if botao_sair:
 		botao_sair.pressed.connect(_on_sair_pressed)
 		botao_sair.mouse_entered.connect(_on_sair_hover)
 		botao_sair.mouse_exited.connect(_on_sair_exit)
 
-func _on_jogar_hover() -> void:
-	if botao_jogar:
-		botao_jogar.modulate = COR_HOVER
+func _on_iniciar_hover() -> void:
+	if overlay_iniciar:
+		overlay_iniciar.visible = true
 
-func _on_jogar_exit() -> void:
-	if botao_jogar:
-		botao_jogar.modulate = COR_NORMAL
+func _on_iniciar_exit() -> void:
+	if overlay_iniciar:
+		overlay_iniciar.visible = false
 
 func _on_sair_hover() -> void:
-	if botao_sair:
-		botao_sair.modulate = COR_HOVER
+	if overlay_sair:
+		overlay_sair.visible = true
 
 func _on_sair_exit() -> void:
-	if botao_sair:
-		botao_sair.modulate = COR_NORMAL
+	if overlay_sair:
+		overlay_sair.visible = false
 
-func _on_jogar_pressed() -> void:
+func _on_iniciar_pressed() -> void:
 	get_tree().change_scene_to_file("res://jogo.tscn")
 
 func _on_sair_pressed() -> void:
