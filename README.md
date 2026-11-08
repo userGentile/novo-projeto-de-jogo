@@ -49,26 +49,3 @@ O jogo não fica mais difícil com o tempo, conforme as ordas passam
 ## 10 Referências visuais/estéticas: estilo de arte (pixel art, minimalista, cartoon), referências de jogos existentes que inspiraram a proposta. 
 
  O jogo que nos inspirou a realizar esse jogo foi o Vampire Survivors, lembra o estilo de jogo "bullet heaven".
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

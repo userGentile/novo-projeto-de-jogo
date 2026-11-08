@@ -1,11 +1,16 @@
 extends Control
 
+@onready var botao_jogar: Button = $BotaoIniciar
+@onready var botao_sair: Button = $BotaoSair
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if botao_jogar:
+		botao_jogar.pressed.connect(_on_jogar_pressed)
+	if botao_sair:
+		botao_sair.pressed.connect(_on_sair_pressed)
 
+func _on_jogar_pressed() -> void:
+	get_tree().change_scene_to_file("res://jogo.tscn")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_sair_pressed() -> void:
+	get_tree().quit()
