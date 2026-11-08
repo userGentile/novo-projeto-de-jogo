@@ -2,15 +2,8 @@
 
 [ext_resource type="Script" path="res://menu_primeiro_mundo.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://dqrefvgtopymw" path="res://arte/arte menu mundo 1.png" id="2_bg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_normal"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
-bg_color = Color(1, 1, 1, 0.22)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[ext_resource type="Texture2D" path="res://arte/btn_iniciar_arte.png" id="3_iniciar"]
+[ext_resource type="Texture2D" path="res://arte/btn_sair_arte.png" id="4_sair"]
 
 [node name="Menu primeiro mundo" type="Control"]
 layout_mode = 3
@@ -32,34 +25,32 @@ texture = ExtResource("2_bg")
 expand_mode = 1
 stretch_mode = 0
 
-[node name="BotaoIniciar" type="Button" parent="."]
+[node name="BotaoIniciar" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.37
-anchor_top = 0.44
-anchor_right = 0.63
-anchor_bottom = 0.58
+anchor_left = 0.3702
+anchor_top = 0.4336
+anchor_right = 0.6603
+anchor_bottom = 0.5983
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_normal")
-theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hover")
-flat = true
+texture_normal = ExtResource("3_iniciar")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="BotaoSair" type="Button" parent="."]
+[node name="BotaoSair" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.40
-anchor_top = 0.61
-anchor_right = 0.60
-anchor_bottom = 0.72
+anchor_left = 0.4031
+anchor_top = 0.6249
+anchor_right = 0.6256
+anchor_bottom = 0.7333
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_normal")
-theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hover")
-flat = true
+texture_normal = ExtResource("4_sair")
+ignore_texture_size = true
+stretch_mode = 0
