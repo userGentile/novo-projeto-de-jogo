@@ -15,7 +15,13 @@ func _on_body_entered(body: Node2D) -> void:
 		if body.has_method("tomar_dano"):
 			body.tomar_dano(1)
 		queue_free()
-	elif body is TileMapLayer or body is StaticBody2D:
+		return
+		
+	if body is TileMapLayer:
+		if "água" in body.name.to_lower() or "agua" in body.name.to_lower():
+			return
+		queue_free()
+	elif body is StaticBody2D:
 		queue_free()
 
 func _on_area_entered(area: Area2D) -> void:

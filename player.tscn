@@ -58,6 +58,8 @@ atlas = ExtResource("2_i3pqv")
 region = Rect2(176, 160, 16, 16)
 
 [node name="Player" type="CharacterBody2D" unique_id=1380302315]
+collision_layer = 1
+collision_mask = 3
 script = ExtResource("1_onrkg")
 
 [node name="Animação" type="AnimatedSprite2D" parent="." unique_id=447840455]

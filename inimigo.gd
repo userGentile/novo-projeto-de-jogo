@@ -24,6 +24,9 @@ var tempo_recarga: float = 0.0
 
 func _ready() -> void:
 	add_to_group("inimigos")
+	var area = get_node_or_null("Area2D")
+	if area and not area.body_entered.is_connected(_on_area_2d_body_entered):
+		area.body_entered.connect(_on_area_2d_body_entered)
 	vida = vida_max
 	speed = base_speed
 	
@@ -80,6 +83,14 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+	for i in range(get_slide_collision_count()):
+		var col = get_slide_collision(i)
+		var collider = col.get_collider()
+		if collider and collider.is_in_group("player"):
+			if collider.has_method("tomar_dano"):
+				collider.tomar_dano(1)
+			break
+
 func atirar_no_player(direcao: Vector2) -> void:
 	var tiro = TIRO_INIMIGO_SCENE.instantiate()
 	tiro.direction = direcao
@@ -113,3 +124,8 @@ func tomar_dano(qtd: int = 1) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("tiros") or area.name.begins_with("Tiro"):
 		tomar_dano(1)
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player") or body.name == "Player":
+		if body.has_method("tomar_dano"):
+			body.tomar_dano(1)
