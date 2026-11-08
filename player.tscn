@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://766jsikflxl"]
 
-[ext_resource type="Script" uid="uid://bvp3xsblk7h7p" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://cvhms78oospb1" path="res://arte/tilemap_packed.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://vf1iyhfllayy" path="res://arte/bandeira_cura.png" id="3_bandeira_tex"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("2_i3pqv")
@@ -40,6 +41,22 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(14, 14)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_coracao"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(240, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tap_icone"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(256, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aviao_btn"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(160, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_multi_icone"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(176, 160, 16, 16)
+
 [node name="Player" type="CharacterBody2D" unique_id=1380302315]
 script = ExtResource("1_onrkg")
 
@@ -54,8 +71,170 @@ shape = SubResource("RectangleShape2D_0e48y")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1341967729]
 zoom = Vector2(2, 2)
-limit_left = 0
-limit_top = 0
-limit_right = 600
-limit_bottom = 300
+limit_left = -52
+limit_top = -44
+limit_right = 1148
+limit_bottom = 556
 position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 68.0
+offset_bottom = 24.0
+theme_override_constants/separation = 2
+
+[node name="Coracao1" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_coracao")
+stretch_mode = 3
+
+[node name="Coracao2" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_coracao")
+stretch_mode = 3
+
+[node name="Coracao3" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_coracao")
+stretch_mode = 3
+
+[node name="ContainerDinheiro" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 28.0
+offset_right = 100.0
+offset_bottom = 44.0
+theme_override_constants/separation = 2
+
+[node name="IconeTap" type="TextureRect" parent="CanvasLayer/Control/ContainerDinheiro"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tap_icone")
+stretch_mode = 3
+
+[node name="Numeros" type="HBoxContainer" parent="CanvasLayer/Control/ContainerDinheiro"]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="ContainerMulti" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 46.0
+offset_right = 60.0
+offset_bottom = 62.0
+theme_override_constants/separation = 2
+
+[node name="IconeMulti" type="TextureRect" parent="CanvasLayer/Control/ContainerMulti"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_multi_icone")
+stretch_mode = 3
+
+[node name="Numeros" type="HBoxContainer" parent="CanvasLayer/Control/ContainerMulti"]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="LabelOnda" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 6.0
+offset_right = 60.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 14
+text = "Onda: 1"
+horizontal_alignment = 1
+
+[node name="LabelRestantes" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 22.0
+offset_right = 60.0
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.7, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 10
+text = "Inimigos: 9"
+horizontal_alignment = 1
+
+[node name="BotaoComprarAviao" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -118.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 32.0
+grow_horizontal = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+text = "Avião (100 Tap) [B]"
+icon = SubResource("AtlasTexture_aviao_btn")
+alignment = 0
+
+[node name="BotaoComprarMulti" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -118.0
+offset_top = 36.0
+offset_right = -8.0
+offset_bottom = 60.0
+grow_horizontal = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+text = "Multi (70 Tap) [M]"
+icon = SubResource("AtlasTexture_multi_icone")
+alignment = 0
+[node name="BotaoBandeira" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -118.0
+offset_top = 64.0
+offset_right = -8.0
+offset_bottom = 88.0
+grow_horizontal = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+text = "Bandeira [E]"
+icon = ExtResource("3_bandeira_tex")
+alignment = 0
+
+[node name="BotaoMundoDois" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -118.0
+offset_top = 92.0
+offset_right = -8.0
+offset_bottom = 116.0
+grow_horizontal = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+text = "Mundo 2 (2500) [P]"
+alignment = 0

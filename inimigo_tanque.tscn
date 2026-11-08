@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c7tanque7"]
+
+[ext_resource type="Script" path="res://inimigo.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cvhms78oospb1" path="res://arte/tilemap_packed.png" id="2_tiles"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tanque"]
+atlas = ExtResource("2_tiles")
+region = Rect2(128, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tanque"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tanque")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tanque"]
+size = Vector2(20, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_area"]
+size = Vector2(22, 17)
+
+[node name="InimigoTanque" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_script")
+tipo_inimigo = "tanque"
+comportamento = "atirador"
+vida_max = 10
+valor_tap = 80
+intervalo_tiro = 2.2
+distancia_tiro = 100.0
+base_speed = 25.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tanque")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tanque")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_area")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

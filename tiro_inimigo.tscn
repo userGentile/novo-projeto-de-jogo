@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cx6y8v2rak8d3"]
+
+[ext_resource type="Script" path="res://tiro_inimigo.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cvhms78oospb1" path="res://arte/tilemap_packed.png" id="2_tiles"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bala"]
+atlas = ExtResource("2_tiles")
+region = Rect2(192, 160, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bala"]
+radius = 4.0
+
+[node name="TiroInimigo" type="Area2D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_bala")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bala")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

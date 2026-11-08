@@ -1,0 +1,78 @@
+================================================================================
+  Coins, Cash and Valuables Pixel Art Set (+40 Icons) — 32x32 Transparent PNG Set
+  Commercial Use License
+================================================================================
+
+Copyright (c) 2026. All rights reserved.
+
+This license governs the use of all image files, sprite sheets, and associated
+data files included in this asset pack (collectively, "the Assets").
+
+By downloading or using the Assets, you agree to the terms below.
+
+--------------------------------------------------------------------------------
+WHAT YOU MAY DO
+--------------------------------------------------------------------------------
+
+  Personal Use
+  You may use the Assets in personal, non-commercial projects without
+  restriction.
+
+  Commercial Use
+  You may use the Assets in commercial projects, including but not limited to:
+
+    - Mobile apps and games (sold or free with monetization)
+    - Web applications and websites
+    - Digital products (UI kits, templates, presentations)
+    - Printed goods for sale (cards, merchandise, stationery)
+    - Streaming overlays, YouTube thumbnails, and social media content
+    - Client work delivered to a third party
+
+  No attribution is required, though it is appreciated.
+
+  Modifications
+  You may modify, recolor, crop, or combine the icons for use within your own
+  projects.
+
+--------------------------------------------------------------------------------
+WHAT YOU MAY NOT DO
+--------------------------------------------------------------------------------
+
+  Redistribution
+  You may not redistribute, share, upload, or make the Assets available for
+  download in their original or modified form, whether for free or for a fee.
+
+  Resale as Assets
+  You may not resell, sublicense, or repackage the Assets — in whole or in
+  part, modified or unmodified — as a standalone icon set, sprite sheet, asset
+  pack, or clip art collection.
+
+  AI Training
+  You may not use the Assets as training data for machine learning or
+  artificial intelligence models.
+
+  Claiming Authorship
+  You may not claim original authorship of the Assets.
+
+--------------------------------------------------------------------------------
+CLARIFICATIONS
+--------------------------------------------------------------------------------
+
+  "A project" means a single end product such as one app, one game, one
+  website, or one product line. If you need the Assets across multiple
+  separate commercial products, each product is covered under a single
+  purchase of this license.
+
+  If you are an agency or freelancer, you may use the Assets in work delivered
+  to clients. Each client end product is covered. You may not hand off the raw
+  asset files to the client for their own redistribution.
+
+--------------------------------------------------------------------------------
+DISCLAIMER
+--------------------------------------------------------------------------------
+
+  The Assets are provided "as is" without warranty of any kind, express or
+  implied. The author is not liable for any damages arising from the use or
+  inability to use the Assets.
+
+================================================================================

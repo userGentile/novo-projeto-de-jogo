@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://rxmy5ymou5yf"]
+
+[ext_resource type="Texture2D" uid="uid://cvhms78oospb1" path="res://arte/tilemap_packed.png" id="1_py6vg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gebfa"]
+atlas = ExtResource("1_py6vg")
+region = Rect2(160, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rnhn"]
+atlas = ExtResource("1_py6vg")
+region = Rect2(160, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dktuw"]
+atlas = ExtResource("1_py6vg")
+region = Rect2(160, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1qaw"]
+atlas = ExtResource("1_py6vg")
+region = Rect2(160, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xg5l"]
+atlas = ExtResource("1_py6vg")
+region = Rect2(160, 144, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sau36"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gebfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rnhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dktuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1qaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xg5l")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qe4n8"]
+size = Vector2(15, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py6vg"]
+atlas = ExtResource("1_py6vg")
+region = Rect2(96, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wn2l"]
+atlas = ExtResource("1_py6vg")
+region = Rect2(96, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfdyb"]
+atlas = ExtResource("1_py6vg")
+region = Rect2(96, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugql7"]
+atlas = ExtResource("1_py6vg")
+region = Rect2(96, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiyab"]
+atlas = ExtResource("1_py6vg")
+region = Rect2(96, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py6vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wn2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfdyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugql7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qiyab")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(15, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t368f"]
+atlas = ExtResource("1_py6vg")
+region = Rect2(128, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qe4n8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t368f")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sau36"]
+size = Vector2(20, 15)
+
+[node name="Inimigos grandes" type="Node2D" unique_id=1623527418]
+
+[node name="Avião" type="CharacterBody2D" parent="." unique_id=1330753211]
+
+[node name="Imagem avião" type="AnimatedSprite2D" parent="Avião" unique_id=516947593]
+sprite_frames = SubResource("SpriteFrames_sau36")
+
+[node name="Corpo avião" type="CollisionShape2D" parent="Avião" unique_id=1687612080]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_qe4n8")
+
+[node name="Caminhão" type="CharacterBody2D" parent="." unique_id=434721234]
+
+[node name="Imagem caminhão" type="AnimatedSprite2D" parent="Caminhão" unique_id=754764496]
+position = Vector2(43, 0)
+sprite_frames = SubResource("SpriteFrames_onrkg")
+
+[node name="Corpo avião" type="CollisionShape2D" parent="Caminhão" unique_id=1274208798]
+position = Vector2(43.5, 0)
+shape = SubResource("RectangleShape2D_hqtel")
+
+[node name="Tanque" type="CharacterBody2D" parent="." unique_id=476836074]
+
+[node name="Imagem tanque" type="AnimatedSprite2D" parent="Tanque" unique_id=1145786636]
+position = Vector2(79, 2)
+sprite_frames = SubResource("SpriteFrames_qe4n8")
+
+[node name="Corpo tanque" type="CollisionShape2D" parent="Tanque" unique_id=1862295008]
+position = Vector2(79, 2)
+shape = SubResource("RectangleShape2D_sau36")

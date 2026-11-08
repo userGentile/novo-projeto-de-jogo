@@ -1,0 +1,259 @@
+{
+  "icon_size": 32,
+  "columns": 7,
+  "total": 42,
+  "icons": {
+    "assorted-coin-bundle.png": {
+      "x": 0,
+      "y": 0,
+      "w": 32,
+      "h": 32
+    },
+    "assorted-coin-stack.png": {
+      "x": 32,
+      "y": 0,
+      "w": 32,
+      "h": 32
+    },
+    "big-diamond.png": {
+      "x": 64,
+      "y": 0,
+      "w": 32,
+      "h": 32
+    },
+    "big-pearl.png": {
+      "x": 96,
+      "y": 0,
+      "w": 32,
+      "h": 32
+    },
+    "blue-credit-card.png": {
+      "x": 128,
+      "y": 0,
+      "w": 32,
+      "h": 32
+    },
+    "closed-chest.png": {
+      "x": 160,
+      "y": 0,
+      "w": 32,
+      "h": 32
+    },
+    "coin-hand-icon.png": {
+      "x": 192,
+      "y": 0,
+      "w": 32,
+      "h": 32
+    },
+    "cold-coin.png": {
+      "x": 0,
+      "y": 32,
+      "w": 32,
+      "h": 32
+    },
+    "credit-card-brown.png": {
+      "x": 32,
+      "y": 32,
+      "w": 32,
+      "h": 32
+    },
+    "cup-and-coins.png": {
+      "x": 64,
+      "y": 32,
+      "w": 32,
+      "h": 32
+    },
+    "dragon-coin.png": {
+      "x": 96,
+      "y": 32,
+      "w": 32,
+      "h": 32
+    },
+    "elven-coin.png": {
+      "x": 128,
+      "y": 32,
+      "w": 32,
+      "h": 32
+    },
+    "emerald-gold-necklace.png": {
+      "x": 160,
+      "y": 32,
+      "w": 32,
+      "h": 32
+    },
+    "fire-coin.png": {
+      "x": 192,
+      "y": 32,
+      "w": 32,
+      "h": 32
+    },
+    "gold-bar.png": {
+      "x": 0,
+      "y": 64,
+      "w": 32,
+      "h": 32
+    },
+    "gold-coin-necklace.png": {
+      "x": 32,
+      "y": 64,
+      "w": 32,
+      "h": 32
+    },
+    "gold-coin.png": {
+      "x": 64,
+      "y": 64,
+      "w": 32,
+      "h": 32
+    },
+    "gold-credit-card.png": {
+      "x": 96,
+      "y": 64,
+      "w": 32,
+      "h": 32
+    },
+    "gold-frame-ruby.png": {
+      "x": 128,
+      "y": 64,
+      "w": 32,
+      "h": 32
+    },
+    "gold-frame-saphire.png": {
+      "x": 160,
+      "y": 64,
+      "w": 32,
+      "h": 32
+    },
+    "gold-nugget.png": {
+      "x": 192,
+      "y": 64,
+      "w": 32,
+      "h": 32
+    },
+    "gold-ring.png": {
+      "x": 0,
+      "y": 96,
+      "w": 32,
+      "h": 32
+    },
+    "gold-sun-coin.png": {
+      "x": 32,
+      "y": 96,
+      "w": 32,
+      "h": 32
+    },
+    "golden-crown.png": {
+      "x": 64,
+      "y": 96,
+      "w": 32,
+      "h": 32
+    },
+    "golden-cup.png": {
+      "x": 96,
+      "y": 96,
+      "w": 32,
+      "h": 32
+    },
+    "leather-bag.png": {
+      "x": 128,
+      "y": 96,
+      "w": 32,
+      "h": 32
+    },
+    "moon-star-coin.png": {
+      "x": 160,
+      "y": 96,
+      "w": 32,
+      "h": 32
+    },
+    "nature-coin.png": {
+      "x": 192,
+      "y": 96,
+      "w": 32,
+      "h": 32
+    },
+    "opened-chest.png": {
+      "x": 0,
+      "y": 128,
+      "w": 32,
+      "h": 32
+    },
+    "pearl-necklace.png": {
+      "x": 32,
+      "y": 128,
+      "w": 32,
+      "h": 32
+    },
+    "regular-coin.png": {
+      "x": 64,
+      "y": 128,
+      "w": 32,
+      "h": 32
+    },
+    "royal-crown-coin.png": {
+      "x": 96,
+      "y": 128,
+      "w": 32,
+      "h": 32
+    },
+    "scales.png": {
+      "x": 128,
+      "y": 128,
+      "w": 32,
+      "h": 32
+    },
+    "silver-coin.png": {
+      "x": 160,
+      "y": 128,
+      "w": 32,
+      "h": 32
+    },
+    "silver-ring.png": {
+      "x": 192,
+      "y": 128,
+      "w": 32,
+      "h": 32
+    },
+    "single-green-bill.png": {
+      "x": 0,
+      "y": 160,
+      "w": 32,
+      "h": 32
+    },
+    "small-gems.png": {
+      "x": 32,
+      "y": 160,
+      "w": 32,
+      "h": 32
+    },
+    "stack-bills.png": {
+      "x": 64,
+      "y": 160,
+      "w": 32,
+      "h": 32
+    },
+    "three-gold-coins.png": {
+      "x": 96,
+      "y": 160,
+      "w": 32,
+      "h": 32
+    },
+    "three-green-bills.png": {
+      "x": 128,
+      "y": 160,
+      "w": 32,
+      "h": 32
+    },
+    "time-coin.png": {
+      "x": 160,
+      "y": 160,
+      "w": 32,
+      "h": 32
+    },
+    "wizard-gold-coin.png": {
+      "x": 192,
+      "y": 160,
+      "w": 32,
+      "h": 32
+    }
+  }
+}

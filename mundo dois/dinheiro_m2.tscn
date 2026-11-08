@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dvaki8ba4nngp"]
+
+[ext_resource type="Script" path="res://mundo dois/dinheiro_m2.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://verdadeira arte do mundo dois/dinheiro do mundo novo/icons-32px/gold-coin.png" id="2_coin"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_coin"]
+radius = 7.0
+
+[node name="DinheiroM2" type="Area2D"]
+collision_layer = 8
+collision_mask = 1
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_coin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_coin")

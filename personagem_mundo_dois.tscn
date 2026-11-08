@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dlw7pn3m83ju8"]
+
+[ext_resource type="Script" path="res://mundo dois/player_m2.gd" id="1_player"]
+[ext_resource type="Texture2D" path="res://verdadeira arte do mundo dois/Personagens/characters/gladiator.png" id="2_gladiator"]
+[ext_resource type="Texture2D" path="res://verdadeira arte do mundo dois/dinheiro do mundo novo/icons-32px/gold-coin.png" id="3_coin"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_player"]
+radius = 10.0
+
+[node name="Player" type="CharacterBody2D" groups=["player_m2"]]
+collision_mask = 3
+script = ExtResource("1_player")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.095, 0.095)
+texture = ExtResource("2_gladiator")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_player")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[node name="TimerAtaque" type="Timer" parent="."]
+
+[node name="TimerInvulneravel" type="Timer" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="VidaContainer" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="IconeVida" type="Label" parent="HUD/MarginContainer/HBoxContainer/VidaContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.2, 0.25, 1)
+theme_override_font_sizes/font_size = 11
+text = "HP:"
+vertical_alignment = 1
+
+[node name="LabelVida" type="Label" parent="HUD/MarginContainer/HBoxContainer/VidaContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "5"
+vertical_alignment = 1
+
+[node name="OuroContainer" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="IconeOuro" type="TextureRect" parent="HUD/MarginContainer/HBoxContainer/OuroContainer"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+texture = ExtResource("3_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LabelOuro" type="Label" parent="HUD/MarginContainer/HBoxContainer/OuroContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "0"
+vertical_alignment = 1

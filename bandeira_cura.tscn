@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://casntug1qpe3x"]
+
+[ext_resource type="Script" path="res://bandeira_cura.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://vf1iyhfllayy" path="res://arte/bandeira_cura.png" id="2_tex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cura"]
+radius = 50.0
+
+[node name="BandeiraCura" type="Area2D"]
+z_index = 10
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cura")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")
+offset = Vector2(0, -6)
+
+[node name="Aura" type="Node2D" parent="."]

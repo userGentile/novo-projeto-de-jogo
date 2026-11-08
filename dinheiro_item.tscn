@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b8y1f3tapitem"]
+
+[ext_resource type="Script" path="res://dinheiro_item.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cvhms78oospb1" path="res://arte/tilemap_packed.png" id="2_tiles"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tap"]
+atlas = ExtResource("2_tiles")
+region = Rect2(256, 160, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tap")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tap"]
+radius = 10.0
+
+[node name="DinheiroItem" type="Area2D"]
+collision_layer = 8
+collision_mask = 1
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tap")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tap")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

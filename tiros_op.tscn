@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://jdcjxkxja0yl"]
+
+[ext_resource type="Texture2D" uid="uid://rysyp1fe3hjq" path="res://arte/tiros amarelos.png" id="1_n7xj1"]
+[ext_resource type="Texture2D" uid="uid://q12vov10hmcw" path="res://arte/tiros azuis.png" id="2_ugny5"]
+[ext_resource type="Texture2D" uid="uid://dvcnh5li3s6w0" path="res://arte/tiro pros vermelhos.png" id="3_ugny5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qe4n8"]
+size = Vector2(22, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t168j"]
+atlas = ExtResource("1_n7xj1")
+region = Rect2(1890, 336, 90, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b2hyj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t168j")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sau36"]
+size = Vector2(18, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocafd"]
+atlas = ExtResource("2_ugny5")
+region = Rect2(1110, 162, 30, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u51vd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocafd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2hyj"]
+size = Vector2(22, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmpwb"]
+atlas = ExtResource("3_ugny5")
+region = Rect2(1110, 162, 30, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7xj1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmpwb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Tiros op" type="Node2D" unique_id=1562934152]
+
+[node name="Tiroop1 amarelo" type="Area2D" parent="." unique_id=765654363]
+light_mask = 0
+
+[node name="Corpo-tiro amarelo" type="CollisionShape2D" parent="Tiroop1 amarelo" unique_id=1795669015]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_qe4n8")
+
+[node name="Imagem tiro amarelo" type="AnimatedSprite2D" parent="Tiroop1 amarelo" unique_id=1840822204]
+position = Vector2(0.50000036, 2.503395e-06)
+scale = Vector2(0.25555554, 0.35714296)
+sprite_frames = SubResource("SpriteFrames_b2hyj")
+autoplay = "default"
+frame_progress = 0.2365583
+
+[node name="tiroop2 azul" type="Area2D" parent="." unique_id=1682523534]
+
+[node name="Corpo tiro-azul" type="CollisionShape2D" parent="tiroop2 azul" unique_id=1192948627]
+position = Vector2(101, 3)
+shape = SubResource("RectangleShape2D_sau36")
+
+[node name="Imagem tiro azul" type="AnimatedSprite2D" parent="tiroop2 azul" unique_id=1739208700]
+position = Vector2(102, 1)
+scale = Vector2(0.6666667, 1)
+sprite_frames = SubResource("SpriteFrames_u51vd")
+
+[node name="tiroop3 vermelho" type="Area2D" parent="." unique_id=933479473]
+position = Vector2(59, -1)
+
+[node name="Corpo tiro-vermelho" type="CollisionShape2D" parent="tiroop3 vermelho" unique_id=235618486]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_b2hyj")
+
+[node name="imagem tiro vermelho" type="AnimatedSprite2D" parent="tiroop3 vermelho" unique_id=70498422]
+position = Vector2(-1, 1)
+scale = Vector2(0.75000006, 1)
+sprite_frames = SubResource("SpriteFrames_n7xj1")
