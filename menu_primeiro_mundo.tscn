@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dc36duw47j4y1" path="res://menu_primeiro_mundo.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://dqrefvgtopymw" path="res://arte/arte menu mundo 1.png" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://c6hoxer28q3a5" path="res://arte/btn_iniciar_arte.png" id="3_iniciar"]
+[ext_resource type="Texture2D" uid="uid://duhjoj4nyjith" path="res://arte/btn_sair_arte.png" id="4_sair"]
 
 [node name="Menu primeiro mundo" type="Control"]
 layout_mode = 3
@@ -35,8 +37,8 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 flat = true
 
-[node name="Overlay" type="ColorRect" parent="BotaoIniciar"]
-visible = false
+[node name="Realce" type="TextureRect" parent="BotaoIniciar"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,7 +46,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(1, 1, 1, 0.22)
+texture = ExtResource("3_iniciar")
+expand_mode = 1
 
 [node name="BotaoSair" type="Button" parent="."]
 layout_mode = 1
@@ -59,8 +62,8 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 flat = true
 
-[node name="Overlay" type="ColorRect" parent="BotaoSair"]
-visible = false
+[node name="Realce" type="TextureRect" parent="BotaoSair"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,4 +71,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(1, 1, 1, 0.22)
+texture = ExtResource("4_sair")
+expand_mode = 1
