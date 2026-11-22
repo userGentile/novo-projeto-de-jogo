@@ -56,4 +56,4 @@ O jogo que nos inspirou a realizar esse jogo foi o Vampire Survivors, que lembra
 vamos enviar desta maneira, pois o mundo 1 já deu muito trabalho para concluir e o mundo dois que nós pensamos teria muitos elementos então demoraria muito mais tempo para realizar.
 
 
-esse jogo é o do caça a bandeira, nós só fizemos modiificações, tinha baixado o de "ache a bandeira" para não perder ele se você quiser ele dnv do jeito que estava.
+esse jogo é o do caça a bandeira, nós só fizemos modiificações, tinha baixado o de "ache a bandeira" para não perder ele se você quiser ele dnv do jeito que estava posso lhe enviar.
