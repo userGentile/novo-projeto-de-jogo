@@ -1,4 +1,4 @@
-# Labirinto de achar o trabalho no IF
+# A Lenda da Bandeira
 
 Equipe:
 
