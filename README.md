@@ -43,7 +43,7 @@ Se ele perder todas vidas.
 
 ## 9 Progressão/dificuldade: o jogo tem fases? Fica mais difícil com o tempo? Existe algum sistema de pontuação ou recorde?
 
-O jogo não fica mais difícil com o tempo, conforme as ordas passam
+O jogo fica mais difícil com o tempo, conforme as ordas passam
 
 
 ## 10 Referências visuais/estéticas: estilo de arte (pixel art, minimalista, cartoon), referências de jogos existentes que inspiraram a proposta. 
